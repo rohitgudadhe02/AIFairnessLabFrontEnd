@@ -3,20 +3,20 @@ import { ShieldAlert, Loader2 } from 'lucide-react';
 
 const InputForm = ({ onAnalyze, loading, error }) => {
   const [formData, setFormData] = useState({
-    income: '60000',
-    credit_score: '720',
-    loan_amount: '200000',
-    loan_term: '36',
-    dependents: '1',
-    education: 'graduate',
-    employment: 'salaried',
-    assets: '50000',
-    bank_balance: '15000',
+    income: '',
+    credit_score: '',
+    loan_amount: '',
+    loan_term: '',
+    dependents: '',
+    education: '',
+    employment: '',
+    assets: '',
+    bank_balance: '',
     // Protected Attributes
-    gender: 'male',
-    race: 'majority',
-    age: '35',
-    zipcode: '10001'
+    gender: '',
+    race: '',
+    age: '',
+    zipcode: ''
   });
 
   const handleChange = (e) => {
@@ -49,23 +49,24 @@ const InputForm = ({ onAnalyze, loading, error }) => {
           {/* Financials */}
           <div className="input-group">
             <label>Annual Income ($)</label>
-            <input type="number" name="income" value={formData.income} onChange={handleChange} required />
+            <input type="number" name="income" value={formData.income} onChange={handleChange} placeholder="e.g. 60000" required />
           </div>
           <div className="input-group">
             <label>Credit Score</label>
-            <input type="number" name="credit_score" value={formData.credit_score} onChange={handleChange} required />
+            <input type="number" name="credit_score" value={formData.credit_score} onChange={handleChange} placeholder="e.g. 720" required />
           </div>
           <div className="input-group">
             <label>Loan Amount ($)</label>
-            <input type="number" name="loan_amount" value={formData.loan_amount} onChange={handleChange} required />
+            <input type="number" name="loan_amount" value={formData.loan_amount} onChange={handleChange} placeholder="e.g. 200000" required />
           </div>
           <div className="input-group">
             <label>Bank Balance ($)</label>
-            <input type="number" name="bank_balance" value={formData.bank_balance} onChange={handleChange} required />
+            <input type="number" name="bank_balance" value={formData.bank_balance} onChange={handleChange} placeholder="e.g. 15000" required />
           </div>
           <div className="input-group">
             <label>Education</label>
-            <select name="education" value={formData.education} onChange={handleChange}>
+            <select name="education" value={formData.education} onChange={handleChange} required>
+              <option value="" disabled>Select...</option>
               <option value="graduate">Graduate</option>
               <option value="not_graduate">Not Graduate</option>
             </select>
@@ -74,7 +75,8 @@ const InputForm = ({ onAnalyze, loading, error }) => {
           {/* Protected Attributes for Shadow Profiles */}
           <div className="input-group" style={{ borderLeft: '2px solid var(--accent-purple)', paddingLeft: '1rem' }}>
             <label>Gender (Protected)</label>
-            <select name="gender" value={formData.gender} onChange={handleChange}>
+            <select name="gender" value={formData.gender} onChange={handleChange} required>
+              <option value="" disabled>Select...</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="nonbinary">Non-Binary</option>
@@ -82,14 +84,15 @@ const InputForm = ({ onAnalyze, loading, error }) => {
           </div>
           <div className="input-group" style={{ borderLeft: '2px solid var(--accent-purple)', paddingLeft: '1rem' }}>
             <label>Race/Ethnicity (Protected)</label>
-            <select name="race" value={formData.race} onChange={handleChange}>
+            <select name="race" value={formData.race} onChange={handleChange} required>
+              <option value="" disabled>Select...</option>
               <option value="majority">Majority</option>
               <option value="minority">Minority</option>
             </select>
           </div>
           <div className="input-group" style={{ borderLeft: '2px solid var(--accent-purple)', paddingLeft: '1rem' }}>
             <label>Age (Protected)</label>
-            <input type="number" name="age" value={formData.age} onChange={handleChange} required />
+            <input type="number" name="age" value={formData.age} onChange={handleChange} placeholder="e.g. 35" required />
           </div>
         </div>
 
