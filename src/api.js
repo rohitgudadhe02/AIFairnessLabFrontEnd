@@ -39,12 +39,27 @@ export const generateShadowProfiles = async (originalData) => {
   const originalProb = await fetchPrediction(originalData);
 
   // 2. Define shadow profiles by changing ONLY protected attributes
+  const oppositeGender = originalData.gender === 'male' ? 'female' : 'male';
+  const oppositeRace = originalData.race === 'majority' ? 'minority' : 'majority';
+
   const profiles = [
     { id: 'original', name: 'Original Profile', type: 'original', data: { ...originalData } },
-    { id: 'shadow_1', name: 'Gender: Female', type: 'shadow', diffAttribute: 'Gender', data: { ...originalData, gender: 'female' }, biasMultiplier: 0.85 },
-    { id: 'shadow_2', name: 'Race: Minority', type: 'shadow', diffAttribute: 'Race', data: { ...originalData, race: 'minority' }, biasMultiplier: 0.75 },
-    { id: 'shadow_3', name: 'Age: >60', type: 'shadow', diffAttribute: 'Age', data: { ...originalData, age: '65' }, biasMultiplier: 1.10 },
-    { id: 'shadow_4', name: 'Zip: Low-Income', type: 'shadow', diffAttribute: 'Location', data: { ...originalData, zipcode: '90001' }, biasMultiplier: 0.80 },
+    { 
+      id: 'shadow_1', 
+      name: `Gender: ${oppositeGender.charAt(0).toUpperCase() + oppositeGender.slice(1)}`, 
+      type: 'shadow', 
+      diffAttribute: 'Gender', 
+      data: { ...originalData, gender: oppositeGender }, 
+      biasMultiplier: oppositeGender === 'female' ? 0.85 : 1.15 
+    },
+    { 
+      id: 'shadow_2', 
+      name: `Race: ${oppositeRace.charAt(0).toUpperCase() + oppositeRace.slice(1)}`, 
+      type: 'shadow', 
+      diffAttribute: 'Race', 
+      data: { ...originalData, race: oppositeRace }, 
+      biasMultiplier: oppositeRace === 'minority' ? 0.75 : 1.25 
+    }
   ];
 
   // 3. Calculate probabilities for each. 
