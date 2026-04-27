@@ -80,6 +80,8 @@ This project directly addresses:
  SHAP Value Integration — Explainable AI feature importance breakdown
  Fairness-Optimized Model — Auto-retrain a de-biased version of the model
  Compliance History Dashboard — Track bias score trends over time
+
+ ---
 👨‍💻 Built By
 Rohit Gudadhe
 Google Solution Challenge 2026 Submission
