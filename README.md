@@ -46,13 +46,7 @@ FairLoan AI is a real-time bias auditing platform that uses **Shadow Profile Tes
 - 🖥️ Render.com (backend hosting)
 ---
 ## 🚀 Live Demo
-**🌐 Live App:** [fairloan-ai.vercel.app](https://fairloan-ai.vercel.app)
-**🔗 Backend API:** [loan-bias-api.onrender.com](https://loan-bias-api.onrender.com)
----
-## 📸 Screenshots
-> Landing Page with Animated Aurora Background
-> Shadow Profile Comparison Chart with Bias Index
-> Gemini AI Bias Explanation
+**🌐 Live App:** https://loan-bias-detect.vercel.app/
 ---
 ## ⚙️ Run Locally
 ### Frontend
