@@ -11,7 +11,7 @@ These biases are invisible. No applicant is ever told *why* they were rejected. 
 FairLoan AI is a real-time bias auditing platform that uses **Shadow Profile Testing** to expose hidden demographic discrimination inside loan approval ML models.
 ### How it works:
 1. **You submit** an applicant's financial details (income, credit score, assets, loan amount).
-2. **We call** your trained ML model to get a baseline approval probability.
+2. **We call** your trained ML model to get a baseline approval probability.(I traiend my ML model using dataset from Kaggle)
 3. **We generate Shadow Profiles** — clones of the same applicant where only protected attributes (gender, race, location) are changed, while all financial data stays identical.
 4. **We calculate a Bias Index (0–100)** showing exactly how much the model's decisions shift based purely on demographics.
 5. **Google Gemini AI explains the bias** in clear, plain English that any compliance officer or applicant can understand.
@@ -66,6 +66,8 @@ git clone https://github.com/rohitgudadhe02/loan-bias-backend.git
 cd loan-bias-backend
 pip install -r requirements.txt
 uvicorn api:app --reload
+
+```
 🎯 UN Sustainable Development Goals
 This project directly addresses:
 
