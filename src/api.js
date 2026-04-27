@@ -41,6 +41,8 @@ export const generateShadowProfiles = async (originalData) => {
   // 2. Define shadow profiles by changing ONLY protected attributes
   const oppositeGender = originalData.gender === 'male' ? 'female' : 'male';
   const oppositeRace = originalData.race === 'majority' ? 'minority' : 'majority';
+  const oppositeAge = parseInt(originalData.age) < 40 ? '65' : '25';
+  const oppositeEducation = originalData.education === 'graduate' ? 'not_graduate' : 'graduate';
 
   const profiles = [
     { id: 'original', name: 'Original Profile', type: 'original', data: { ...originalData } },
@@ -59,6 +61,22 @@ export const generateShadowProfiles = async (originalData) => {
       diffAttribute: 'Race', 
       data: { ...originalData, race: oppositeRace }, 
       biasMultiplier: oppositeRace === 'minority' ? 0.75 : 1.25 
+    },
+    {
+      id: 'shadow_3',
+      name: `Age: ${oppositeAge}`,
+      type: 'shadow',
+      diffAttribute: 'Age',
+      data: { ...originalData, age: oppositeAge },
+      biasMultiplier: parseInt(oppositeAge) > 50 ? 0.80 : 1.20
+    },
+    {
+      id: 'shadow_4',
+      name: `Education: ${oppositeEducation === 'graduate' ? 'Graduate' : 'Not Graduate'}`,
+      type: 'shadow',
+      diffAttribute: 'Education',
+      data: { ...originalData, education: oppositeEducation },
+      biasMultiplier: oppositeEducation === 'not_graduate' ? 0.70 : 1.30
     }
   ];
 

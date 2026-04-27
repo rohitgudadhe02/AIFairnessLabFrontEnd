@@ -87,6 +87,10 @@ const InputForm = ({ onAnalyze, loading, error }) => {
               <option value="minority">Minority</option>
             </select>
           </div>
+          <div className="input-group" style={{ borderLeft: '2px solid var(--accent-purple)', paddingLeft: '1rem' }}>
+            <label>Age (Protected)</label>
+            <input type="number" name="age" value={formData.age} onChange={handleChange} required />
+          </div>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem' }}>
