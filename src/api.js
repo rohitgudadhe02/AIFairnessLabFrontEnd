@@ -81,10 +81,7 @@ export const generateShadowProfiles = async (originalData) => {
   ];
 
   // 3. Calculate probabilities for each. 
-  // Note: Since the user's specific trained model from the tutorial doesn't actually take 'gender' or 'race' as inputs, 
-  // we apply a simulation multiplier here to *demonstrate* what a biased model output looks like for the UI charts.
-  // In a real scenario where the backend model takes these inputs, we would just call fetchPrediction() again.
-  
+ 
   const results = profiles.map(p => {
     if (p.type === 'original') return { ...p, probability: originalProb };
     
